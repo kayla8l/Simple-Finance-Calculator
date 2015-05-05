@@ -13,6 +13,7 @@ def main ():
             SPG()
     else: SP()
 
+# stock price calculation without dividend growth
 def SP():
     print ("Let's find the stock price!")
     print ("What is the company's dividend?")
@@ -22,6 +23,7 @@ def SP():
     stockprice = D / Re
     print ('The current stock price for', company, 'is ' + str(stockprice))
 
+#stock price calculation with dividend growth
 def SPG():
     print ("Let's find the stock price!")
     print ("What is the company's dividend?")
