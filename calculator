@@ -1,0 +1,36 @@
+from __future__ import print_function
+
+from decimal import *
+
+def main ():
+    print ("Let's find the stock price!")
+    print ("What is the name of the company?")
+    global company
+    company = input()
+    print ("Do the company's dividends grow? (yes or no)")
+    growth = input()
+    if growth == 'yes':
+            SPG()
+    else: SP()
+
+def SP():
+    print ("Let's find the stock price!")
+    print ("What is the company's dividend?")
+    D = (Decimal(input()))
+    print ("What is the company return on equity?")
+    Re = (Decimal(input()))
+    stockprice = D / Re
+    print ('The current stock price for', company, 'is ' + str(stockprice))
+
+def SPG():
+    print ("Let's find the stock price!")
+    print ("What is the company's dividend?")
+    D = (Decimal(input())
+    print ("What is the company return on equity?")
+    Re = (Decimal(input()))
+         
+    g = (Decimal(input()))
+    stockprice = (D * (1 + g)) / (Re - g)
+    print ('The current stock price for', company, 'is ' + str(stockprice))
+
+SPG()
