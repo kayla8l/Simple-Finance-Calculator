@@ -33,4 +33,4 @@ def SPG():
     stockprice = (D * (1 + g)) / (Re - g)
     print ('The current stock price for', company, 'is ' + str(stockprice))
 
-SPG()
+main()
