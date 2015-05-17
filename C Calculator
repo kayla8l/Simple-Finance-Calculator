@@ -1,0 +1,67 @@
+//
+//  main.c
+//  Financial Calculator
+//
+//  Created by Lee on 15-05-16.
+//  Copyright (c) 2015 Lee. All rights reserved.
+//
+
+#include <stdio.h>
+#include <string.h>
+
+void sp (char companyname[100], float dividend, double roe)
+{   float stockprice;
+    stockprice = dividend / (roe / 100);
+    printf("The current stock price for %s is %.2f\n", companyname, stockprice);
+}
+
+void spg (char companyname[100], float dividend, double roe)
+{   float stockprice;
+    float growth;
+    printf("What is the dividend growth rate for %s?", companyname);
+    scanf("%f", &growth);
+    printf("The dividend growth rate for %s is %.2f %% \n", companyname, growth);
+    stockprice = (dividend * (1 + (growth / 100)) / ((roe / 100) - growth));
+    printf("The current stock price for %s is %.2f\n", companyname, stockprice);    
+
+}
+
+int main(int argc, const char * argv[])
+{
+    char companyname[100];
+    float dividend;
+    double roe; //return on equity
+    char answer[3 ];
+    
+    printf("Welcome to the Financial Calculator!\n");
+    sleep(2);
+    printf("I hear you're interested in finding the current stock price, may I know for which company?\n");
+    printf("\n");
+    scanf("%s", companyname); // fgets(companyname, 100, stdin);
+    
+    printf("Great! %s it is.\n", companyname);
+    sleep(2);
+    
+    printf("What is the next dividend for %s?\n", companyname);
+    scanf("%f", &dividend);
+    printf("%s's next dividend is $%.2f\n", companyname, dividend);
+    sleep(2);
+    
+    printf("What is the return on equity for %s?", companyname);
+    scanf("%lf", &roe);
+    printf("%s's return on equity is %.2lf %% \n", companyname, roe);
+    
+    printf("Are %s's dividends growing?\n", companyname);
+    printf("Enter \"y\" for \"yes\" or \"n\" for \"no\" \n");
+    scanf("%s", answer);
+    
+    printf("Now let's calculate the stock price!\n");
+    sleep(2);
+    if (strcmp(answer, "y") == 0)
+        spg (companyname, dividend, roe);
+    else
+        sp (companyname, dividend, roe);
+    
+    return 0;
+}
+
