@@ -21,7 +21,7 @@ void spg (char companyname[100], float dividend, double roe)
     printf("What is the dividend growth rate for %s?", companyname);
     scanf("%f", &growth);
     printf("The dividend growth rate for %s is %.2f %% \n", companyname, growth);
-    stockprice = (dividend * (1 + (growth / 100)) / ((roe / 100) - growth));
+    stockprice = (dividend * (1 + (growth / 100)) / ((roe / 100) - (growth / 100)));
     printf("The current stock price for %s is %.2f\n", companyname, stockprice);    
 
 }
@@ -37,7 +37,9 @@ int main(int argc, const char * argv[])
     sleep(2);
     printf("I hear you're interested in finding the current stock price, may I know for which company?\n");
     printf("\n");
-    scanf("%s", companyname); // fgets(companyname, 100, stdin);
+    scanf("%[^\n]", companyname);
+    
+    // try to replace scanf() with fgets(companyname, 100, stdin);
     
     printf("Great! %s it is.\n", companyname);
     sleep(2);
